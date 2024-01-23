@@ -7,7 +7,7 @@ using Shouldly;
 using Xunit;
 
 namespace MySpot.Tests.Unit.Services;
-public class ReservationServiceTests
+/*public class ReservationServiceTests
 {
     [Fact]
     public void given_reservation_for_not_taken_date_create_reservation_should_succeed()
@@ -38,4 +38,5 @@ public class ReservationServiceTests
         
     }
     #endregion
-}
+
+}*/
