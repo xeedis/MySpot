@@ -1,14 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using MySpot.Api.Entities;
-using MySpot.Api.Exceptions;
-using MySpot.Api.ValueObjects;
+﻿using MySpot.Core.Entities;
+using MySpot.Core.Exceptions;
+using MySpot.Core.ValueObjects;
 using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace MySpot.Tests.Unit.Entities;

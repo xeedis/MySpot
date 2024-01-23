@@ -1,9 +1,4 @@
-﻿using MySpot.Api.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySpot.Application.Services;
 
 namespace MySpot.Tests.Unit.Shared;
 internal class TestClock : IClock

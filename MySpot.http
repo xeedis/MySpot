@@ -1,6 +1,6 @@
 @url = http://localhost:5000
 
-@reservationId= 3cf8ba1a-f8d1-4b19-8cb8-07efd8c96602
+@reservationId= 2beece65-0cf1-4606-922b-26142791cc25
 
 @parkingSpotId = 00000000-0000-0000-0000-000000000001
 ###
@@ -17,7 +17,7 @@ Content-Type: application/json
     "parkingSpotId": "{{parkingSpotId}}",
     "employeeName": "John Doe",
     "licensePlate": "XYZ124",
-    "Date" : "2024-01-21"
+    "Date" : "2024-01-24"
 }
 
 ###
