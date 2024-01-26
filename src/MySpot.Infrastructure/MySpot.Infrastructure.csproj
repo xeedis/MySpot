@@ -6,14 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.15" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MySpot.Application\MySpot.Application.csproj" />
+    <ProjectReference Include="..\MySpot.Core\MySpot.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-	  <InternalVIsibleTo Include="MySpot.Test.Unit" />
+    <ProjectReference Include="..\MySpot.Core\MySpot.Core.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="MySpot.Tests.Unit" />
+  </ItemGroup>
+  
 </Project>

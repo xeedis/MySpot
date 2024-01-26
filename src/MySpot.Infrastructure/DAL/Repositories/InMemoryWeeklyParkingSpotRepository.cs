@@ -3,9 +3,9 @@ using MySpot.Core.Entities;
 using MySpot.Core.Repositories;
 using MySpot.Core.ValueObjects;
 
-namespace MySpot.Infrastructure.Repositories;
+namespace MySpot.Infrastructure.DAL.Repositories;
 
-internal class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRepository
+public class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRepository
 {
     private readonly IClock _clock;
     private readonly List<WeeklyParkingSpot> _weeklyParkingSpots;

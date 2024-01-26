@@ -3,7 +3,7 @@ using MySpot.Application.Commands;
 using MySpot.Application.DTO;
 using MySpot.Application.Services;
 
-namespace MySpot.Application.Controllers;
+namespace MySpot.Api.Controllers;
 
 [ApiController]
 [Route("reservations")]

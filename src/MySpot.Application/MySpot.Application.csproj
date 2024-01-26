@@ -12,5 +12,5 @@
   <ItemGroup>
     <ProjectReference Include="..\MySpot.Core\MySpot.Core.csproj" />
   </ItemGroup>
-
+  
 </Project>

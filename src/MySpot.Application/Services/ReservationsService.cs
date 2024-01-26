@@ -45,6 +45,7 @@ public class ReservationsService : IReservationsService
             command.LicensePlate, new Date(command.Date));
 
         weeklyParkingSpot.AddReservation(reservation, new Date(_clock.Current()));
+        _weeklyParkingSpotRepository.Update(weeklyParkingSpot);
 
         return reservation.Id;
     }
@@ -69,6 +70,7 @@ public class ReservationsService : IReservationsService
         }
 
         existingReservation.ChangeLicensePlate(command.LicensePlate);
+        _weeklyParkingSpotRepository.Update(weeklyParkingSpot);
 
         return true;
     }
@@ -83,6 +85,8 @@ public class ReservationsService : IReservationsService
         }
 
         weeklyParkingSpot.RemoveReservation(existingReservation);
+        _weeklyParkingSpotRepository.Update(weeklyParkingSpot);
+
         return true;
     }
 
