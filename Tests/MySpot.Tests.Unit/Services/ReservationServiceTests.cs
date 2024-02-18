@@ -1,6 +1,8 @@
 ﻿using MySpot.Application.Commands;
 using MySpot.Application.Services;
 using MySpot.Core.Abstractions;
+using MySpot.Core.DomainServices;
+using MySpot.Core.Policies;
 using MySpot.Core.Repositories;
 using MySpot.Infrastructure.DAL.Repositories;
 using MySpot.Tests.Unit.Shared;
@@ -15,11 +17,11 @@ public class ReservationServiceTests
     {
         //Arrange
         var parkingSpot = (await _weeklyParkingSpotRepository.GetAllAsync()).First();
-        var command = new CreateReservation(parkingSpot.Id, 
+        var command = new ReserveParkingSpotForVehicle(parkingSpot.Id, 
             Guid.NewGuid(), DateTime.UtcNow.AddDays(2), "John Doe", "XYZ123");
 
         //Act
-        var reservationId = await _reservationService.CreateAsync(command);
+        var reservationId = await _reservationService.ReserveForVehicleAsync(command);
 
         //Assert
         reservationId.ShouldNotBeNull();
@@ -35,7 +37,15 @@ public class ReservationServiceTests
     {
         _clock = new TestClock();
         _weeklyParkingSpotRepository = new InMemoryWeeklyParkingSpotRepository(_clock);
-        _reservationService = new ReservationsService(_weeklyParkingSpotRepository, _clock);
+
+        var parkingReservationService = new ParkingReservationService(new IReservationPolicy[]
+        {
+            new BossReservationPolicy(),
+            new ManagerReservationPolicy(),
+            new RegularEmployeeReservationPolicy(_clock)
+        }, _clock);
+        
+        _reservationService = new ReservationsService(_weeklyParkingSpotRepository, _clock, parkingReservationService);
         
     }
     #endregion
