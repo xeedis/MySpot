@@ -57,7 +57,7 @@ public class ReservationsService : IReservationsService
         }
 
         var reservation = new VehicleReservation(command.ReservationId, command.ParkingSpotId, command.EmployeeName,
-            command.LicensePlate, new Date(command.Date));
+            command.LicensePlate,command.Capacity, new Date(command.Date));
 
         _parkingReservationService.ReserveSpotForVehicle(weeklyParkingSpots, JobTitle.Employee, parkingSpotToReserve, 
             reservation);
