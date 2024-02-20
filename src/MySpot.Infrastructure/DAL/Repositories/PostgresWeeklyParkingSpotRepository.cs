@@ -46,9 +46,9 @@ internal sealed class PostgresWeeklyParkingSpotRepository : IWeeklyParkingSpotRe
         await _dbContext.SaveChangesAsync(); 
     }
 
-    public async Task DeleteAsync(WeeklyParkingSpot weeklyParkingSpot)
+    public Task DeleteAsync(WeeklyParkingSpot weeklyParkingSpot)
     {
         _dbContext.Remove(weeklyParkingSpot);
-        await _dbContext.SaveChangesAsync(); 
+        return Task.CompletedTask;
     }
 }
