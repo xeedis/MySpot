@@ -1,13 +1,16 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MySpot.Application.Services;
+using MySpot.Application.Abstractions;
 
 namespace MySpot.Application;
 public static class Extensions
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IReservationsService, ReservationsService>();
-
+        var applicationAssembly = typeof(ICommandHandler<>).Assembly;
+        services.Scan(s => s.FromAssemblies(applicationAssembly)
+            .AddClasses(c => c.AssignableTo(typeof(ICommandHandler<>)))
+            .AsImplementedInterfaces()
+            .WithScopedLifetime());
         return services;
     }
 }
