@@ -24,7 +24,7 @@ public static class Extensions
                 .WriteTo
                 .File("logs/logs.txt")
                 .WriteTo
-                .Seq("http//localhost:5431");
+                .Seq("http://localhost:5431");
         });
 
         return builder;
