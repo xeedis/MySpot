@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySpot.Application.Abstractions;
 using MySpot.Core.Abstractions;
+using MySpot.Infrastructure.Auth;
 using MySpot.Infrastructure.DAL;
 using MySpot.Infrastructure.Exceptions;
 using MySpot.Infrastructure.Logging;
@@ -18,6 +19,8 @@ public static class Extensions
         services.Configure<AppOptions>(section);
         services.AddSingleton<ExceptionMiddleware>();
         services.AddSecurity();
+        services.AddAuth(configuration);
+        services.AddHttpContextAccessor();
         
         services
             .AddPostgres(configuration)
@@ -37,7 +40,8 @@ public static class Extensions
     public static WebApplication UseInfrastructure(this WebApplication app)
     {
         app.UseMiddleware<ExceptionMiddleware>();
-
+        app.UseAuthentication();
+        app.UseAuthorization();
         app.MapControllers();
         
         return app;
