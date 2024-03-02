@@ -16,12 +16,11 @@ internal sealed class Authenticator : IAuthenticator
     private readonly string _audience;
     private readonly TimeSpan _expiry;
     private readonly SigningCredentials _signingCredentials;
-    private readonly JwtSecurityTokenHandler _jwtSecurityTokenHandler;
+    private readonly JwtSecurityTokenHandler _jwtSecurityToken = new JwtSecurityTokenHandler();
 
-    public Authenticator(IOptions<AuthOptions> options, IClock clock, JwtSecurityTokenHandler jwtSecurityTokenHandler)
+    public Authenticator(IOptions<AuthOptions> options, IClock clock)
     {
         _clock = clock;
-        _jwtSecurityTokenHandler = jwtSecurityTokenHandler;
         _issuer = options.Value.Issuer;
         _audience = options.Value.Audience;
         _expiry = options.Value.Expiry ?? TimeSpan.FromHours(1);
@@ -42,7 +41,7 @@ internal sealed class Authenticator : IAuthenticator
         };
 
         var jwt = new JwtSecurityToken(_issuer, _audience, claims, now, expires, _signingCredentials);
-        var accessToken = _jwtSecurityTokenHandler.WriteToken(jwt);
+        var accessToken = _jwtSecurityToken.WriteToken(jwt);
 
         return new JwtDto()
         {

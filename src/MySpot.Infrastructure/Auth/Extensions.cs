@@ -13,10 +13,10 @@ public static class Extensions
     private const string SectionName = "auth";
     public static IServiceCollection AddAuth(this IServiceCollection services, IConfiguration configuration)
     {
-        services.Configure<AuthOptions>(configuration.GetRequiredSection(SectionName));
         var options = configuration.GetOptions<AuthOptions>(SectionName);
 
         services
+            .Configure<AuthOptions>(configuration.GetRequiredSection(SectionName))
             .AddSingleton<IAuthenticator, Authenticator>()
             .AddSingleton<ITokenStorage, HttpContextTokenStorage>()
             .AddAuthentication(x =>
