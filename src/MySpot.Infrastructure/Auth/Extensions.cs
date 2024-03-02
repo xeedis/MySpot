@@ -35,7 +35,13 @@ public static class Extensions
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.SigningKey))
                 };
             });
-        services.AddAuthorization();
+        services.AddAuthorization(authorization =>
+        {
+            authorization.AddPolicy("is-admin", policy =>
+            {
+                policy.RequireRole("admin");
+            });
+        });
 
         return services;
     }

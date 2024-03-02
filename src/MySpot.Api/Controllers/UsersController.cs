@@ -10,6 +10,7 @@ using MySpot.Application.Security;
 namespace MySpot.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class UsersController : ControllerBase
 {
@@ -33,6 +34,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("{userId:guid}")]
+    [Authorize(Policy = "is-admin")]
     public async Task<ActionResult<UserDto>> Get(Guid userId)
     {
         var user = await _getUserHandler.HandleAsync(new GetUser { UserId = userId });
@@ -62,6 +64,11 @@ public class UsersController : ControllerBase
         
         return user;
     }
+
+    [HttpGet]
+    [Authorize(Policy = "is-admin")]
+    public async Task<ActionResult<IEnumerable<UserDto>>> Get([FromQuery] GetUsers query)
+        => Ok(await _getUsersHandler.HandleAsync(query));
     
     [HttpPost]
     public async Task<ActionResult> Post(SignUp command)
