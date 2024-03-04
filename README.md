@@ -1,7 +1,7 @@
 # MySpot
 A simple project for reservation Parking spots reservation.
 
-##Features used in that project:
+## Features used in that project:
 -Clean Architecture design,
 -Docker,
 -Serilog,
@@ -11,7 +11,7 @@ A simple project for reservation Parking spots reservation.
 -Value Objects,
 -Unit Tests and Integration tests
 
-##User stories
+## User stories
 - [ ] User can log in or register using email and password
 - [ ] User can reservate parking spot for designated week
 - [ ] Depending on User`s role, reservations can have different priorities, i.e. Manager has higher priority in reserving parking spot than regular user.
