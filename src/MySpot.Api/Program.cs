@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Options;
+using MySpot.Api;
 using MySpot.Application;
 using MySpot.Core;
 using MySpot.Infrastructure;
@@ -17,4 +19,5 @@ builder.UseSerilog();
 var app = builder.Build();
 
 app.UseInfrastructure();
+app.UseUsersApi();
 app.Run();
