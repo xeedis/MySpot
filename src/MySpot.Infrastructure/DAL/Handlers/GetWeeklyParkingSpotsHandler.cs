@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using MySpot.Application.Abstractions;
 using MySpot.Application.DTO;
 using MySpot.Application.Queries;
-using MySpot.Application.Queries.Handlers;
 using MySpot.Core.ValueObjects;
 using MySpot.Infrastructure.DAL;
+using MySpot.Infrastructure.DAL.Handlers;
 
 namespace MySpot.Infrastructure.Handlers;
 

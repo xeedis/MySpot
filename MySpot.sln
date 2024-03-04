@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpot.Core", "src\MySpot.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySpot.Infrastructure", "src\MySpot.Infrastructure\MySpot.Infrastructure.csproj", "{1A5E313B-E708-48D7-A49F-9C9FE63D9A27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Tests.Integration", "Tests\MySpot.Tests.Integration\MySpot.Tests.Integration.csproj", "{2D0AACA3-11F0-4AF6-B395-9A7D98245751}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{1A5E313B-E708-48D7-A49F-9C9FE63D9A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A5E313B-E708-48D7-A49F-9C9FE63D9A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A5E313B-E708-48D7-A49F-9C9FE63D9A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D0AACA3-11F0-4AF6-B395-9A7D98245751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D0AACA3-11F0-4AF6-B395-9A7D98245751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D0AACA3-11F0-4AF6-B395-9A7D98245751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D0AACA3-11F0-4AF6-B395-9A7D98245751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{01FC13CF-C688-4135-934C-4B70AE620FCF} = {179FE905-A5F3-4B26-9C3D-FD31D5225880}
 		{BC33135E-AB93-4B0F-83AF-887C36F41A1F} = {179FE905-A5F3-4B26-9C3D-FD31D5225880}
 		{1A5E313B-E708-48D7-A49F-9C9FE63D9A27} = {179FE905-A5F3-4B26-9C3D-FD31D5225880}
+		{2D0AACA3-11F0-4AF6-B395-9A7D98245751} = {BE1106AB-9F7D-42D5-9B68-071F3BF4F883}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD13135C-74CD-4699-AACA-00FAB9A80B55}

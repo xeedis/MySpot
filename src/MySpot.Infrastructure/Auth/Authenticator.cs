@@ -26,7 +26,7 @@ internal sealed class Authenticator : IAuthenticator
         _expiry = options.Value.Expiry ?? TimeSpan.FromHours(1);
         _signingCredentials = new SigningCredentials(
             new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.Value.SigningKey)),
-            SecurityAlgorithms.Sha256);
+            SecurityAlgorithms.HmacSha256);
     }
     public JwtDto CreateToken(Guid userId, string role)
     {
@@ -43,7 +43,7 @@ internal sealed class Authenticator : IAuthenticator
         var jwt = new JwtSecurityToken(_issuer, _audience, claims, now, expires, _signingCredentials);
         var accessToken = _jwtSecurityToken.WriteToken(jwt);
 
-        return new JwtDto()
+        return new JwtDto
         {
             AccessToken = accessToken
         };

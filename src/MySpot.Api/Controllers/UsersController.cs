@@ -11,7 +11,6 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace MySpot.Api.Controllers;
 
 [ApiController]
-[Authorize]
 [Route("[controller]")]
 public class UsersController : ControllerBase
 {
@@ -81,7 +80,7 @@ public class UsersController : ControllerBase
     {
         command = command with { UserId = Guid.NewGuid() };
         await _signUpHandler.HandleAsync(command);
-        return NoContent();
+        return CreatedAtAction(nameof(Get), new {command.UserId}, null);
     }
     
     [HttpPost("sign-in")]

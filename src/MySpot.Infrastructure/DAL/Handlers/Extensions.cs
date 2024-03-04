@@ -1,7 +1,7 @@
 using MySpot.Application.DTO;
 using MySpot.Core.Entities;
 
-namespace MySpot.Application.Queries.Handlers;
+namespace MySpot.Infrastructure.DAL.Handlers;
 
 internal static class Extensions
 {
@@ -21,5 +21,12 @@ internal static class Extensions
                 Type = x is VehicleReservation ? "vehicle" : "cleaning",
                 Date = x.Date.Value.Date
             })
+        };
+    public static UserDto AsDto(this User entity)
+        => new()
+        {
+            Id = entity.Id,
+            Username = entity.Username,
+            FullName = entity.FullName
         };
 }
