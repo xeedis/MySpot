@@ -2,14 +2,14 @@
 A simple project for reservation Parking spots reservation.
 
 ## Features used in that project:
--Clean Architecture design,
--Docker,
--Serilog,
--EntityFramework,
--Asynchronous programming,
--SOLID principles,
--Value Objects,
--Unit Tests and Integration tests
+- Clean Architecture design,
+- Docker,
+- Serilog,
+- EntityFramework,
+- Asynchronous programming,
+- SOLID principles,
+- Value Objects,
+- Unit Tests and Integration tests
 
 ## User stories
 - [ ] User can log in or register using email and password
